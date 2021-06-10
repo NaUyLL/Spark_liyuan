@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="749f8df8-344e-4ddd-a3bc-11c03ca0ad24" name="Default Changelist" comment="" />
+    <list default="true" id="af0de6bd-78c9-4f44-9c72-6dc03b1fd7d0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,8 +30,7 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
-  <component name="ProjectId" id="1thgMtT61CBUw0CwdA89PcmCsRd" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1tiHb19cCcebHfLffqLHfIqlP6N" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -38,24 +40,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.5557123" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/data" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.csv_analysis">
-    <configuration name="Json_ana" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="Json_ana" />
-      <module name="spark_liyuan" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="WordCount" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="WordCount" />
       <module name="spark_liyuan" />
@@ -63,31 +54,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="csv_analysis" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="csv_analysis" />
-      <module name="spark_liyuan" />
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.csv_analysis" />
         <item itemvalue="Application.WordCount" />
-        <item itemvalue="Application.Json_ana" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="749f8df8-344e-4ddd-a3bc-11c03ca0ad24" name="Default Changelist" comment="" />
-      <created>1623226693431</created>
+      <changelist id="af0de6bd-78c9-4f44-9c72-6dc03b1fd7d0" name="Default Changelist" comment="" />
+      <created>1623245057479</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1623226693431</updated>
-      <workItem from="1623226695355" duration="7492000" />
-      <workItem from="1623241606743" duration="1845000" />
+      <updated>1623245057479</updated>
+      <workItem from="1623245059824" duration="1385000" />
     </task>
     <servers />
   </component>
