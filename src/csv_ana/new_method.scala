@@ -1,0 +1,3 @@
+object new_method {
+
+}
