@@ -1,45 +1,14 @@
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.types._
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.SaveMode
 import org.apache.spark.sql.expressions.Window
 
-
-object finanacial_csv {
+object task2 {
   def main(args: Array[String]): Unit = {
+    val spark = SparkSession.builder().master("local").appName("Financial_csv").getOrCreate()
 
-    val spark = SparkSession.builder().master("spark://spark:7077").appName("Financial_csv").getOrCreate()
-
-    //读取本地文件
-    val f_csv=spark.read.option("header", "true").option("multiLine", true).csv("/usr/local/spark/resources/data/Financial_Sample.csv")
-
-    val fcol = f_csv.columns
-
-    // 用于处理表头，包括去除括号及里面的中文，去除中间的空格转为"_"，去除两端的空格
-    def columnName_deal(S: String)={
-      var S_deal = S.trim
-      val a = S_deal.indexOf("(")
-      val b = S_deal.indexOf("（")
-      if (a != -1){
-        if (b<a && b != -1)
-        {
-          S_deal = S_deal.substring(0,b).trim
-        }
-        else{
-          S_deal = S_deal.substring(0,a).trim
-        }
-      }
-      else{
-        if (b != -1)
-        {
-          S_deal = S_deal.substring(0,b).trim
-        }
-        else{
-          S_deal = S_deal.trim
-        }
-      }
-      S_deal.replace(" ", "_")
-    }
+    var pre_fcsv = spark.sql(
+      "select Country, Product, Units_Sold, Sales, COGS, Profit, Year, Month_Number as Month from financial "
+    )
 
     // 用于将所有金钱类列转换为string
     def col2Float(S: String) = {
@@ -60,36 +29,8 @@ object finanacial_csv {
     }
 
     val c2f = udf(col2Float _) // 注册为UDF函数，方便DF调用
-    val str_trim = udf((str: String) => str.trim()) // 用于消除普通数据的前后空格的UDF
-    val dd = udf((str: String) => str.trim.replace("/","-")) // 用于将日期xxxx/xx/xx转为xxxx-xx-xx
-
     val float_2f = udf((str: String) => str.toFloat.formatted("%.2f")) // 将过长小数规范到2位
 
-    var newf_csv = f_csv.toDF(fcol.map(columnName_deal(_)): _*) // 处理表头
-
-    // 处理日期
-    newf_csv = newf_csv.withColumn("Date", dd(col("Date")))
-
-    val newfcol = newf_csv.columns // 将所有列都处理一下前后空格问题
-    newfcol.map(column =>{
-      newf_csv = newf_csv.withColumn(column, str_trim(col(column)))
-    })
-
-//    // 存储到本地table
-//    newf_csv.write
-//      .mode(SaveMode.Append)
-//      .partitionBy("Year", "Month_Number")
-//      .saveAsTable("financial")
-//
-//    // 获取需要的列数据
-//    var pre_fcsv = spark.sql(
-//      "select Country, Product, Units_Sold, Sales, COGS, Profit, Year, Month_Number as Month from financial "
-//    )
-
-    var pre_fcsv = newf_csv.select(col("Country"), col("Product"), col("Units_Sold"),
-      col("Sales"), col("COGS"), col("Profit"), col("Year"), col("Month_Number").as("Month"))
-
-    // 处理钱类数据
     pre_fcsv = pre_fcsv.withColumn("Sales", c2f(col("Sales")))
       .withColumn("COGS", c2f(col("COGS")))
       .withColumn("Profit", c2f(col("Profit")))
@@ -100,7 +41,7 @@ object finanacial_csv {
 
     // 月度销售额top3国家
     val top3_sales_country = pre_fcsv.groupBy("Country", "YM")
-        .agg(sum("Sales") as "Sales_c")
+      .agg(sum("Sales") as "Sales_c")
     val win1 = Window.partitionBy("YM").orderBy(- col("Sales_c"))
     val c_sql1 = top3_sales_country.withColumn("top", rank() over win1)
       .filter("top <= 3").withColumn("Sales_c", float_2f(col("Sales_c")))
@@ -108,8 +49,8 @@ object finanacial_csv {
 
     // 月度利润率top3国家
     val top3_profitraio_country = pre_fcsv.groupBy("Country", "YM")
-        .agg(sum("COGS") as "COGS_c", sum("Profit") as "Profit_c")
-        .withColumn("Profit_ratio", col("Profit_c")/col("COGS_c"))
+      .agg(sum("COGS") as "COGS_c", sum("Profit") as "Profit_c")
+      .withColumn("Profit_ratio", col("Profit_c")/col("COGS_c"))
     val win2 = Window.partitionBy("YM").orderBy(- col("Profit_ratio"))
     val c_sql2 = top3_profitraio_country.withColumn("top", rank() over win2)
       .filter("top <= 3").select(col("Country"), col("YM"), float_2f(col("Profit_ratio")), col("top"))//.withColumn("Profit_ratio", float_2f(col("Sales_c")))

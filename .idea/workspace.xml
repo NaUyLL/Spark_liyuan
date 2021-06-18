@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="spark_liyuan:jar" />
+      <artifact name="spark_liyuan:jar4" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,11 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af0de6bd-78c9-4f44-9c72-6dc03b1fd7d0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/spark_liyuan_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/scala_sdk_2_11_12.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/spark_liyuan_jar2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/spark_liyuan_jar3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/spark_liyuan_jar4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/csv_ana/task1.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/csv_ana/task2.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spark_liyuan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/spark_liyuan.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/csv_ana/csv_analysis.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/csv_ana/csv_analysis.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WordCount/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/WordCount/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/csv_ana/finanacial_csv.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/csv_ana/finanacial_csv.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +29,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -44,6 +55,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -55,7 +67,7 @@
     <property name="project.structure.side.proportion" value="0.5557123" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="Application.csv_analysis">
+  <component name="RunManager" selected="Application.task1">
     <configuration name="WordCount" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="WordCount" />
       <module name="spark_liyuan" />
@@ -70,8 +82,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="task1" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="task1" />
+      <module name="spark_liyuan" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.task1" />
         <item itemvalue="Application.csv_analysis" />
         <item itemvalue="Application.WordCount" />
       </list>
@@ -89,6 +120,10 @@
       <workItem from="1623389208611" duration="4198000" />
       <workItem from="1623400014768" duration="714000" />
       <workItem from="1623403561678" duration="127000" />
+      <workItem from="1623922766759" duration="2977000" />
+      <workItem from="1623989266696" duration="2969000" />
+      <workItem from="1623998013027" duration="899000" />
+      <workItem from="1623999747230" duration="1018000" />
     </task>
     <servers />
   </component>
